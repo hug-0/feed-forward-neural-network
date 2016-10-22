@@ -37,6 +37,8 @@ There are also a number of _utility_ functions to help make parameter and model 
 - False Discovery Rate
 - False Negative Rate
 
+`splitDataSet.m` takes a data set and ratios that determine the size of the training set and cross validation sets, respectively. The remainder will be the out-of-sample test set.
+
 `fmincg.m` is an efficient minimization solver, courtesy of Carl Edward Rasmussen.
 
 `setLabels.py` is a utility script written in Python that computes unique numerical labels for from data sets where the class labels are strings. Mostly because matlab doesn't operate efficiently on strings. The function writes out `.csv` files with the new labels, as well as a file that indicates the number of unique labels found in the data set.
