@@ -23,10 +23,10 @@ data = data(randperm(size(data,1)),:);
 % Assuming y is the last column of data
 X_full = data(:,1:size(data,2)-1); y_full = data(:,end);
 
-% Select in_sample and out_sample of training set
-ratio = 0.8;
-X_in = X_full(1:length(X_full)*ratio,:); y_in = y_full(1:length(y_full)*ratio);
-X_out = X_full(length(X_full)*ratio+1:end,:); y_out = y_full(length(y_full)*ratio+1:end);
+% Select in_sample, cross validation and out_sample of training set
+ratio_in = 0.6; ratio_cv = 0.2;
+[X_in, X_cv, X_out] = splitDataSet(X_full, ratio_in, ratio_cv);
+[y_in, y_cv, y_out] = splitDataSet(y_full, ratio_in, ratio_cv);
 
 % ===========================================================================
 % 2. VISUALIZE IMAGE DATA
