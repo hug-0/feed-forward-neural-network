@@ -67,7 +67,7 @@ end
 input_layer_size = length(X_in(1,:));
 hidden_layer_size = 2*input_layer_size;
 % Python script finds number of unique labels;
-num_labels = csvread(strcat(fileName(1:length(fileName)-4),'_num_labels.csv'));
+num_labels = length(unique(y_full));
 
 weight_options = { Bias = 'true'};
 % random_theta_1 = randomWeights(input_layer_size, hidden_layer_size);

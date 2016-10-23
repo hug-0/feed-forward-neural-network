@@ -8,6 +8,6 @@ function [in_sample, cross_val, out_sample] = splitDataSet(data, training_size_r
 	end
 
 	in_sample = data(1:length(data)*training_size_ratio,:);
-	cross_val = data(length(in_sample)+1:end-length(data)*(1-training_size_ratio+cv_size_ratio),:);
+	cross_val = data(length(in_sample)+1:end-length(data)*(1-training_size_ratio-cv_size_ratio),:);
 	out_sample = data((length(in_sample)+length(cross_val)+1):end,:);
 end

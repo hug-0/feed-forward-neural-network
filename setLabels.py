@@ -4,9 +4,14 @@
 # usage: term$ python setLabels.py data_file.csv
 import csv
 import sys
+import os
 
-inName = './'+str(sys.argv[1])
-outName = './'+inName.split('.')[1]+'_numerics.csv'
+inName = str(sys.argv[1])
+outName = inName.split('.')[0]+'_numerics.csv'
+
+if (os.path.isabs(inName)):
+	print 'Only relative paths are supported. E.g. "myfile.csv"'
+	exit(0)
 
 with open(inName, 'r') as infile, open(outName, 'wb') as outfile, open('./'+inName.split('.')[1]+'_num_labels.csv','wb') as num_labels:
 	reader = csv.reader(infile, delimiter=',')
