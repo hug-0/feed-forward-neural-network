@@ -19,7 +19,7 @@ function [theta_1, theta_2, J_min, optimal_penalty] = optimalParams(X, y, input_
 	end
 
 	% Find smallest cost J as function of penalty at end of iterations
-	j_min_col = find(min(J_mat(end,:)));
+	j_min_col = min(J_mat(end,:), [], 2);
 
 	% Return variable
 	optimal_penalty = penalties(j_min_col);
